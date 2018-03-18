@@ -10,10 +10,10 @@ Debian / Ubuntu:
 `apt-get install php-sqlite3`
 
 Fedora:
-`dnf install php-sqlite`
+`dnf install php-sqlite3`
 
 ArchLinux:
-`pacman -S php-sqlite`
+`pacman -S php-sqlite3`
 
 Windows:
 [How To Download & Install ](http://www.sqlitetutorial.net/download-install-sqlite)
