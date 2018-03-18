@@ -1,0 +1,73 @@
+body{
+    background-image: url("texture.png");
+    font-family: 'Roboto', sans-serif;
+}
+table{
+    text-align: center;
+width: 100%;
+}
+tr:hover{
+    background-color: rgb(97, 25, 25);
+}
+.prvni{
+    height:50px;
+    background-color: rgb(255, 150, 30);
+}
+.prvni:hover{
+    background-color: rgb(255, 150, 30);
+}
+
+a{
+    font-size: 150%;
+    text-decoration: none;
+    color:white;
+}
+
+a:hover{
+    font-size: 150%;
+    text-decoration: none;
+    color:blue;
+}
+
+th{
+    font-size: 150%;
+    text-decoration: none;
+    color:white;
+}
+
+
+td{
+    text-decoration: none;
+    color:white;
+}
+
+h1{
+    margin: -15px 800px 10px 800px;
+    background-color: rgb(255, 150, 30);
+    text-decoration: none;
+    color:white;
+}
+
+footer{
+    text-align: right;
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 13px;
+    color:white;
+    font-family: 'Barlow', sans-serif;
+}
+.dave{
+  font-size: 13px;
+}
+.dave:hover{
+    font-size: 13px;
+    color:rgb(255, 150, 30);
+}
+
+.numberofbans{
+position: fixed;
+background:  rgb(255, 150, 30);
+color:white;
+
+}
