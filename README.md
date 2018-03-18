@@ -8,6 +8,7 @@ Graphically Designed by [DAWE Graphics](https://github.com/DV2013DAWE).
 
 Debian / Ubuntu:
 `apt-get install php-sqlite3`
+
 Windows:
 [Install](http://www.sqlitetutorial.net/download-install-sqlite)
 
