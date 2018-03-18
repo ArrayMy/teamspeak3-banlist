@@ -6,8 +6,10 @@ Graphically Designed by [DAWE Graphics](https://github.com/DV2013DAWE).
 ### Tutorial
 * Install SQLite3 
 
-Debian:
+Debian / Ubuntu:
 `apt-get install php-sqlite3`
+Windows:
+[Install](http://www.sqlitetutorial.net/download-install-sqlite)
 
 * Edit the data in */cfg/config.ini*
 * Import files with folders into your web server's storage
