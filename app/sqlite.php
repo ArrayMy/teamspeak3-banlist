@@ -103,7 +103,7 @@ class SQLite_core{
 	}
 
 	public function SQLite3_View_Data(){
-		echo "<font class=numberofbans><center>Bans: ".$this->countfilebans."</center></font>";
+		echo "<font class=numberofbans><center>Bans: ".$this->countfilebans."</center></font><br>";
 
         $this->SQLite3_File_Query_Result = $this->SQLite3_File->query('SELECT * FROM TS3DATA');
 
