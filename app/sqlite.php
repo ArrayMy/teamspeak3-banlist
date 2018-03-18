@@ -154,7 +154,6 @@ class SQLite_core{
        }
     }
 }
-/*https://www.if-not-true-then-false.com/2012/php-pdo-sqlite3-example/*/
 
 
 ?>
