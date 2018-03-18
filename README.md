@@ -20,7 +20,7 @@ Windows:
 
 * Edit the data in */cfg/config.ini*
 * Import files with folders into your web server's storage
-* Folder *cfg* , *app* and *lib* must be placed under the folder in which the banlist. For example, the site (www/) will be in */var/www/banlist/* so the contents of the cfg must be in the */var/www/cfg/* (Safety reasons!)
+* Folder *cfg* , *app* and *lib* must be placed under the folder in which the banlist. For example, the site (www/) will be in */var/www/banlist/* so the contents of the *cfg* must be in the */var/www/cfg/* (Safety reasons!)
 * Grant permissions
 `chgrp www-data app/data`
 `chmod g+w app/data`
