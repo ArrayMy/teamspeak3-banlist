@@ -4,6 +4,11 @@ Teamspeak3 Banlist with Administration in TeamSpeak 3 PHP Framework.
 Graphically Designed by [DAWE Graphics](https://github.com/DV2013DAWE).
 
 ### Tutorial
+* Install SQLite3 
+
+Debian:
+`apt-get install php-sqlite3`
+
 * Edit the data in */cfg/config.ini*
 * Import files with folders into your web server's storage
 * Folder *cfg* , *app* and *lib* must be placed under the folder in which the banlist. For example, the site (www/) will be in */var/www/banlist/* so the contents of the cfg must be in the */var/www/cfg/* (Safety reasons!)
