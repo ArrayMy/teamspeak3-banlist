@@ -6,9 +6,9 @@ require_once("_DIR_ . \"/../../app/controller.php");
 		<meta charset=UTF8>
 		<title>BANLIST</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-        <link rel="icon" type="image/png" href="css/favicon.png" />
+                <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+                <link rel="icon" type="image/png" href="css/favicon.png" />
 		<script src="js/jquery-3.3.1.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="js/script.js"></script>
