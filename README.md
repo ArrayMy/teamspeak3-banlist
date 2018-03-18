@@ -6,7 +6,7 @@ Graphically Designed by [DAWE Graphics](https://github.com/DV2013DAWE).
 ### Tutorial
 * Install SQLite3 
 
-Debian / Ubuntu:
+Debian/Ubuntu:
 `apt-get install php-sqlite3`
 
 Fedora:
