@@ -1,4 +1,5 @@
 # TeamSpeak3_Banlist
+## 01.07.2018 NEW FIXED VERSION!
 Teamspeak3 Banlist with Administration in TeamSpeak 3 PHP Framework.
 
 Graphically Designed by [DAWE Graphics](https://github.com/DV2013DAWE).
