@@ -1,4 +1,4 @@
-# TeamSpeak3_Banlist
+# Teamspeak3 Banlist
 Teamspeak3 Banlist with leaderboard and perks with nickname effects.
 
 Graphically Designed by [DAWE Graphics](https://github.com/DV2013DAWE).
