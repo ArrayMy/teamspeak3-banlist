@@ -32,5 +32,5 @@ Windows:
 ***
 
 ### Display
-![alt text](https://ts3banlist.zevl-team.tk/banlist.png "TS3-BANLIST")
+![alt text](http://fortime.8u.cz/github/Banlist.png "TS3-BANLIST")
 
