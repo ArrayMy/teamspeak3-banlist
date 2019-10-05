@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Francois+One&display=swap');
 body{
     background-image: url("texture.png");
     font-family: 'Roboto', sans-serif;
@@ -48,10 +49,10 @@ h1{
     color:white;
 }
 
-footer{
+.footer{
+    position: static;
     text-align: right;
-    position: absolute;
-    bottom: 8px;
+    bottom: 0%;
     right: 16px;
     font-size: 13px;
     color:white;
@@ -66,8 +67,13 @@ footer{
 }
 
 .numberofbans{
-position: fixed;
-background:  rgb(255, 150, 30);
-color:white;
-
+    opacity: 0.9;
+    border: 5px solid #262626;
+    border-radius: 5px;
+    font-family: 'Francois One', sans-serif;
+    position: fixed;
+    left:0%;
+    top: 1%;
+    background:  #262626;
+    color:white;
 }

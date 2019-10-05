@@ -17,7 +17,6 @@ class TeamSpeak3_Controller{
     public function TeamSpeak3_Banlist_Controller(){
         $this->TeamSpeak3_Core = new TeamSpeak3_Core();
         $this->TeamSpeak3_Core->TeamSpeak3_Core_Banlist();
-
     }
 
 }

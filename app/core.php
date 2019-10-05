@@ -1,5 +1,5 @@
 <?php
-require_once("_DIR_ . \"/../../lib/libraries/TeamSpeak3/TeamSpeak3.php");
+require_once ("_DIR_ . \"/../../vendor/planetteamspeak/ts3-php-framework/libraries/TeamSpeak3/TeamSpeak3.php");
 require_once("serverquery.php");
 require_once("sqlite.php");
 

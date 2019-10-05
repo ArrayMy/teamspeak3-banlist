@@ -5,6 +5,10 @@ require_once("_DIR_ . \"/../../app/controller.php");
 	<head>
 		<meta charset=UTF8>
 		<title>BANLIST</title>
+        <link href='https://fonts.googleapis.com/css?family=Black+Ops+One|Luckiest+Guy|Sonsie+One|Shojumaru&effect=3d|3d-float|anaglyph|brick-sign|canvas-print|
+            crackle|decaying|destruction|distressed|distressed-wood|emboss|fire|fire-animation|fragile|grass|ice|mitosis|neon|outline|putting-green|
+            scuffed-steel|shadow-multiple|splintered|static|stonewash|vintage|wallpaper'
+              rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
                 <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
@@ -31,12 +35,11 @@ require_once("_DIR_ . \"/../../app/controller.php");
         $controller = new TeamSpeak3_Controller();
         $controller->TeamSpeak3_Banlist_Controller();
         ?>
+        <div class="footer">
+            Graphically Designed by
+            <a class="dave" href=https://github.com/DV2013DAWE> DAWE Graphics</a><br>
+            Developed by
+            <a class="dave" href=https://github.com/ArrayMy>ArrayMy</a><br>
+        </div>
     </body>
-    <footer>
-        Graphically Designed by
-        <a class="dave" href=https://github.com/DV2013DAWE> DAWE Graphics</a><br>
-        Developed by
-        <a class="dave" href=https://github.com/ArrayMy>ArrayMy</a><br>
-    </footer>
-	
 </html>

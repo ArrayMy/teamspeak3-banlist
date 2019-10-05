@@ -1,0 +1,15 @@
+{
+  "name": "ArrayMy/TS3-banlist",
+  "description": "Teamspeak3 Online Banlist with administrations",
+  "minimum-stability": "stable",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "ArrayMy",
+      "email": "email@example.com"
+    }
+  ],
+  "require-dev": {
+    "planetteamspeak/ts3-php-framework": "1.1.33"
+  }
+}

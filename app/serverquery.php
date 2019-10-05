@@ -5,7 +5,7 @@
  * Date: 23.02.2018
  * Time: 11:59
  */
-require_once ("_DIR_ . \"/../../lib/libraries/TeamSpeak3/TeamSpeak3.php");
+require_once ("_DIR_ . \"/../../vendor/planetteamspeak/ts3-php-framework/libraries/TeamSpeak3/TeamSpeak3.php");
 
 class ServerQuery
 {
@@ -20,7 +20,7 @@ class ServerQuery
         $this->teamspeak_ip = $config['teamspeak_ip'];
         $this->teamspeak_port = $config['teamspeak_port'];
         $this->teamspeak_server_port = $config['teamspeak_server_port'];
-        $this->teamspeak_mysql = $config['teamspeak_mysql'];
+        /*$this->teamspeak_mysql = $config['teamspeak_mysql'];*/
         $this->data = array();
     }
 
