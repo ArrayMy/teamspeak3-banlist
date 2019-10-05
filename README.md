@@ -1,5 +1,4 @@
 # TeamSpeak3_Banlist
-## 01.09.2018 NEW FIXED AND OPTIMIZED VERSION!
 Teamspeak3 Banlist with Administration in TeamSpeak 3 PHP Framework.
 
 Graphically Designed by [DAWE Graphics](https://github.com/DV2013DAWE).
@@ -29,8 +28,7 @@ Windows:
 ### Next release
 * Banlist administration
 * Delete/Add bans
-* More information for each record
-* I recommend using a newer version! [All Version](https://github.com/ArrayMy/TeamSpeak3_Banlist/releases)
+
 ***
 
 ### Display
