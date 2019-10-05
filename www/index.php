@@ -1,5 +1,8 @@
 <?php
 require_once("_DIR_ . \"/../../app/controller.php");
+require_once ("../app/sqlite.php");
+$language = new SQLite_core();
+$words = $language->Language();
 ?>
 <html>
 	<head>
@@ -20,16 +23,16 @@ require_once("_DIR_ . \"/../../app/controller.php");
 	
 	</head>
 	<body>
-    <center><br><h1>Banlist</h1></center>
+    <center><br><h1 class="header"><?php echo $words[5]; ?></h1></center>
     <table>
         <tr  class="prvni">
-            <th>ID</th>
-            <th>Nickname</th>
-            <th>IP/UID</th>
-            <th>Duration</th>
-            <th>Admin</th>
-            <th>Reason</th>
-            <th>Status</th>
+            <th class="header"><?php echo $words[6]; ?></th>
+            <th class="header"><?php echo $words[7]; ?></th>
+            <th class="header"><?php echo $words[8]; ?></th>
+            <th class="header"><?php echo $words[9]; ?></th>
+            <th class="header"><?php echo $words[10]; ?></th>
+            <th class="header"><?php echo $words[11]; ?></th>
+            <th class="header"><?php echo $words[12]; ?></th>
         </tr>
         <?php
         $controller = new TeamSpeak3_Controller();

@@ -6,6 +6,7 @@ class SQLite_core
     public $SQLite3_File_Query_Result;
     public $SQLite3_File;
     public $SQLite3_File_Query_Control_Result;
+    public $language;
 
     public function __construct()
     {
@@ -153,40 +154,102 @@ class SQLite_core
             }
         }
         $o = 2;
-        for($z=1;$o!=null;$z++){
-            $name = 'name'.$z;
-            if(isset($config[$name])){
-            $sql = 'SELECT COUNT(*) FROM TS3DATA WHERE invokername=?';
-            $stmt = $this->SQLite3_File->prepare($sql);
-            $stmt->execute([$config[$name]]);
-            $tops[$z] = $stmt->fetch(PDO::FETCH_ASSOC);
-              }else{
-                  $o = null;
-              }
-        }
-        foreach ($tops as $top => $cosi){
-            $raid[] = $cosi["COUNT(*)"];
-        }
-        $top_banner = max($raid);
-        $i = 2;
-        for($p=1;$i!=null;$p++){
-            if($top_banner==$tops[$p]["COUNT(*)"]){
-                $name = 'name'.$p;
-                return array($config[$name],max($raid));
+        $i = 0;
+        if(isset($config['name1'])) {
+            for ($z = 1; $o != null; $z++) {
+                $name = 'name' . $z;
+                $i++;
+                if (isset($config[$name])) {
+                    $name_array[$i] = $config[$name];
+                    $sql = 'SELECT COUNT(*) FROM TS3DATA WHERE invokername=?';
+                    $stmt = $this->SQLite3_File->prepare($sql);
+                    $stmt->execute([$config[$name]]);
+                    $tops[$z] = $stmt->fetch(PDO::FETCH_ASSOC);
+                } else {
+                    $o = null;
+                }
             }
         }
+        /*var_dump($name_array);*/
+        $raid = array();
+        $ii = 1;
+        if(isset($tops)) {
+            foreach ($tops as $top => $cosi) {
+                $raid = $cosi["COUNT(*)"];
+                $name_array_list[$ii] = array(
+                    'nick' => $name_array[$ii],
+                    'ban' => $cosi["COUNT(*)"]
+                );
+                $ii++;
+            }
+            function compare_lastname($a, $b)
+            {
+                return strnatcmp($b['ban'],$a['ban']);
+            }
+            usort($name_array_list,'compare_lastname');
+            return $name_array_list;
+        }
+    }
+    public function Language()
+    {
+        $config = $this->parse_config();
+        if($config['lang'] == 'cz')
+        {
+            $language = array(
+                'Celkem: ',
+                'Dominuje: ',
+                'Počet dominujíciho: ',
+                'Potrestán',
+                'Odpuštěno',
+                'Seznam hříšníků',
+                'ID',
+                'Jméno',
+                'IP/UID',
+                'Trvání',
+                'Udělil',
+                'Důvod',
+                'Status'
+            );
+        }else
+            {
+                $language = array(
+                    'Total bans: ',
+                    'Dominant: ',
+                    'Dominant bans: ',
+                    'Banned',
+                    'Unbanned',
+                    'Banlist',
+                    'ID',
+                    'Nickname',
+                    'IP/UID',
+                    'Duration',
+                    'Admin',
+                    'Reason',
+                    'Status'
+                );
 
+            }
+        return $language;
     }
     public function SQLite3_View_Data()
     {
+        $language = $this->Language();
         $winner = $this->Top_Banner();
-        echo "<div class=numberofbans>Total bans:  " . $this->countfilebans . "<br>Dominant: <span class=\"font-effect-fire-animation\" style=\"font-size:15px; font-family:Sonsie One;\">". $winner[0] ."</span><br>Dominant bans: ". $winner[1] ."</div>";
+        echo "<div class=numberofbans>".
+            $language[0] . $this->countfilebans .
+            "<br>$language[1]<span class=\"font-effect-fire-animation\" style=\"font-size:15px; font-family:Sonsie One;\">". $winner[0]['nick'] ."</span><br> $language[2] ". $winner[0]['ban']."
+            <br><br><font style='font-size: 13px;'>Ostatní:</font>
+             <br>2. <span class='secondary' style='font-size: 17px'>".$winner[1]['nick']."</span> - ".$winner[1]['ban']."
+             <br>3. <span class='th' style='font-size: 17px'>".$winner[2]['nick']."</span> - ".$winner[2]['ban']."
+             <br>4. ".$winner[3]['nick']." - ".$winner[3]['ban']."
+             <br>5. ".$winner[4]['nick']." - ".$winner[4]['ban']."
+            </div>";
 
         $this->SQLite3_File_Query_Result = $this->SQLite3_File->query('SELECT * FROM TS3DATA');
 
         foreach ($this->SQLite3_File_Query_Result as $dataview) {
             if (empty($dataview['reason'])) {
-                $reason = "The reason was not given";
+                $reason = "Důvod nebyl uveden";
             } else {
                 $reason = $dataview['reason'];
             }
@@ -200,7 +263,7 @@ class SQLite_core
                 $ip = $dataview['ip'];
             }
             if ($dataview['lastnickname'] == NULL and $dataview['name'] == NULL) {
-                $nickname = "---";
+                $nickname = "<abbr title=\"Jméno hříšnika nebylo uvedené\"><img src=\"../www/css/cemetery(1).svg\" height=\"25px\"></abbr>";
             } elseif ($dataview['name'] != NULL) {
                 $nickname = $dataview['name'];
             } else {
@@ -208,13 +271,13 @@ class SQLite_core
             }
             if ($dataview['duration'] == 0) {
                 $expires = "Permanent";
-                $stav = "<font color='red'>Banned</font>";
+                $stav = "<font color='red'>$language[3]</font>";
             } else {
                 $expires = date('d-m-Y H:i:s', $dataview['created'] + $dataview['duration']);
                 if (date('d-m-Y H:i:s') > $expires) {
-                    $stav = "<font color='green'>Unbanned</font>";
+                    $stav = "<font color='green'>$language[4]</font>";
                 } else {
-                    $stav = "<font color='red'>Banned</font>";
+                    $stav = "<font color='red'>$language[3]</font>";
                 }
             }
             echo '<tr id=row>';
@@ -233,7 +296,16 @@ class SQLite_core
                 echo '<td>' . $uid .'/'. $ip.'</td>';
             }
             echo '<td>' . $expires . '</td>';
-            echo '<td>' . $dataview['invokername'] . '</td>';
+            if($dataview['invokername']==$winner[0]['nick']){
+                echo '<td><span class="fire" style="font-size:12px; font-family:Sonsie One;">' . $dataview['invokername'] . '</span></td>';
+            }elseif($dataview['invokername']==$winner[1]['nick']){
+                echo "<td><span class='secondary' style='font-size: 15px'> ".$winner[1]['nick']."</span></td>";
+            }elseif ($dataview['invokername']==$winner[2]['nick']){
+                echo "<td><span class='th' style='font-size: 17px'> ".$winner[2]['nick']."</span></td>";
+            }
+            else{
+                echo '<td>' . $dataview['invokername'] . '</td>';
+            }
             echo '<td>' . $reason . '</td>';
             echo '<td>' . $stav . '</td>';
             echo '</tr>';
