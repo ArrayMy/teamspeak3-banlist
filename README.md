@@ -1,5 +1,5 @@
 # TeamSpeak3_Banlist
-Teamspeak3 Banlist with Administration in TeamSpeak 3 PHP Framework.
+Teamspeak3 Banlist with leaderboard.
 
 Graphically Designed by [DAWE Graphics](https://github.com/DV2013DAWE).
 
@@ -20,14 +20,13 @@ Windows:
 
 * Edit the data in */cfg/config.ini*
 * Import files with folders into your web server's storage
-* Folder *cfg* , *app* and *lib* must be placed under the folder in which the banlist. For example, the site (www/) will be in */var/www/banlist/* so the contents of the *cfg* must be in the */var/www/cfg/* (Safety reasons!)
+* */www* is webroot
 * Grant permissions
 `chgrp www-data app/data`
 `chmod g+w app/data`
 ***
 ### Next release
 * Banlist administration
-* Delete/Add bans
 
 ***
 
