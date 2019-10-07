@@ -1,4 +1,14 @@
 <?php
+/* Banlist functions ServerQuery<->SQLite
+ * App\SQLite;
+ * 
+ */
+
+namespace Application\Main;
+
+use Application\Main\Config_Parser;
+use Application\Main\Language;
+
 class SQLite_core
 {
 
@@ -31,15 +41,9 @@ class SQLite_core
         $this->countfilebans = count($rows);
     }
 
-    public function parse_config()
-    {
-        $config = parse_ini_file("_DIR_ . \"/../../cfg/config.ini");
-        return $config;
-    }
-
     public function SQLite3_Save_Data($data)
     {
-        $config = $this->parse_config();
+        $config = new App\Config_Parser();
         $this->SQLite3_Count_ServerClients($data);
         $this->SQLite3_Count_FileClients();
         if ($this->countfilebans == 0){
@@ -190,50 +194,10 @@ class SQLite_core
             return $name_array_list;
         }
     }
-    public function Language()
-    {
-        $config = $this->parse_config();
-        if($config['lang'] == 'cz')
-        {
-            $language = array(
-                'Celkem: ',
-                'Dominuje: ',
-                'Počet dominujíciho: ',
-                'Potrestán',
-                'Odpuštěno',
-                'Seznam hříšníků',
-                'ID',
-                'Jméno',
-                'IP/UID',
-                'Trvání',
-                'Udělil',
-                'Důvod',
-                'Status'
-            );
-        }else
-            {
-                $language = array(
-                    'Total bans: ',
-                    'Dominant: ',
-                    'Dominant bans: ',
-                    'Banned',
-                    'Unbanned',
-                    'Banlist',
-                    'ID',
-                    'Nickname',
-                    'IP/UID',
-                    'Duration',
-                    'Admin',
-                    'Reason',
-                    'Status'
-                );
-
-            }
-        return $language;
-    }
     public function SQLite3_View_Data()
     {
-        $language = $this->Language();
+        $language = new App\Language();
+        $language->generate_language();
         $winner = $this->Top_Banner();
         echo "<div class=numberofbans>".
             $language[0] . $this->countfilebans .
@@ -263,7 +227,7 @@ class SQLite_core
                 $ip = $dataview['ip'];
             }
             if ($dataview['lastnickname'] == NULL and $dataview['name'] == NULL) {
-                $nickname = "<abbr title=\"Jméno hříšnika nebylo uvedené\"><img src=\"../www/css/cemetery(1).svg\" height=\"25px\"></abbr>";
+                $nickname = "<abbr title=\"Jméno hříšnika nebylo uvedené\"><img src=\"../www/css/cemetery(1).svg\" height=\"22px\"></abbr>";
             } elseif ($dataview['name'] != NULL) {
                 $nickname = $dataview['name'];
             } else {

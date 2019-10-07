@@ -1,8 +1,8 @@
 <?php
 require_once("_DIR_ . \"/../../app/controller.php");
-require_once ("../app/sqlite.php");
-$language = new SQLite_core();
-$words = $language->Language();
+$controller = new Application\Main\TeamSpeak3_Controller;
+$controller->TeamSpeak3_Banlist_Controller();
+$words = $controller->$Language;
 ?>
 <html>
 	<head>
@@ -34,10 +34,6 @@ $words = $language->Language();
             <th class="header"><?php echo $words[11]; ?></th>
             <th class="header"><?php echo $words[12]; ?></th>
         </tr>
-        <?php
-        $controller = new TeamSpeak3_Controller();
-        $controller->TeamSpeak3_Banlist_Controller();
-        ?>
         <div class="footer">
             Graphically Designed by
             <a class="dave" href=https://github.com/DV2013DAWE> DAWE Graphics</a><br>

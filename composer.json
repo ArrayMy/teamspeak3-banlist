@@ -1,7 +1,7 @@
 {
   "name": "ArrayMy/TS3-banlist",
-  "description": "Teamspeak3 Online Banlist with administrations",
-  "minimum-stability": "stable",
+  "description": "",
+  "minimum-stability": "unstable",
   "license": "GPL-3.0",
   "authors": [
     {

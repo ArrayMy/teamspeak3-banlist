@@ -1,14 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zdene
- * Date: 23.02.2018
- * Time: 12:00
+/* Controller
+ * App\Controller;
+ * 
+ * Control for calling core sets in layout
  */
-require_once ("core.php");
+namespace Application\Main;
+use Application\Main\TeamSpeak3_Core;
 
 class TeamSpeak3_Controller{
 
+    public $Language;
     public $TeamSpeak3_Core;
     public function __construct()
     {
@@ -17,6 +18,7 @@ class TeamSpeak3_Controller{
     public function TeamSpeak3_Banlist_Controller(){
         $this->TeamSpeak3_Core = new TeamSpeak3_Core();
         $this->TeamSpeak3_Core->TeamSpeak3_Core_Banlist();
+        $this->Language = $this->TeamSpeak3_Core->TeamSpeak3_Core_Language();
     }
 
 }
