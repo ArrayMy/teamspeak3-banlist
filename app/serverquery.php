@@ -1,10 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zdene
- * Date: 23.02.2018
- * Time: 11:59
+/* Connect and Return Instance of SQ
+ * App\ServerQuery;
+ * 
  */
+
 require_once ("_DIR_ . \"/../../vendor/planetteamspeak/ts3-php-framework/libraries/TeamSpeak3/TeamSpeak3.php");
 
 class ServerQuery

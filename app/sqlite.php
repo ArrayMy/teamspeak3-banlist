@@ -4,10 +4,9 @@
  * 
  */
 
-namespace Application\Main;
 
-use Application\Main\Config_Parser;
-use Application\Main\Language;
+require 'configparser.php';
+
 
 class SQLite_core
 {
@@ -194,10 +193,49 @@ class SQLite_core
             return $name_array_list;
         }
     }
+    public function generate_language()
+    {
+         if($config['lang'] == 'cz')
+        {
+            $language = array(
+                'Celkem: ',
+                'Dominuje: ',
+                'Počet dominujíciho: ',
+                'Potrestán',
+                'Odpuštěno',
+                'Seznam hříšníků',
+                'ID',
+                'Jméno',
+                'IP/UID',
+                'Trvání',
+                'Udělil',
+                'Důvod',
+                'Status'
+            );
+        }else
+            {
+                $language = array(
+                    'Total bans: ',
+                    'Dominant: ',
+                    'Dominant bans: ',
+                    'Banned',
+                    'Unbanned',
+                    'Banlist',
+                    'ID',
+                    'Nickname',
+                    'IP/UID',
+                    'Duration',
+                    'Admin',
+                    'Reason',
+                    'Status'
+                );
+
+            }
+        return $language;
+    }
     public function SQLite3_View_Data()
     {
-        $language = new App\Language();
-        $language->generate_language();
+        $language = $this->generate_language();
         $winner = $this->Top_Banner();
         echo "<div class=numberofbans>".
             $language[0] . $this->countfilebans .

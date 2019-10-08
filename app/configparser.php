@@ -1,7 +1,5 @@
 <?php
 
-namespace Application\Main;
-
 class ConfigParser{
     
     public function __construct() {

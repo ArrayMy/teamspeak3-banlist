@@ -1,8 +1,8 @@
 <?php
 require_once("_DIR_ . \"/../../app/controller.php");
-$controller = new Application\Main\TeamSpeak3_Controller;
+$controller = new TeamSpeak3_Controller;
 $controller->TeamSpeak3_Banlist_Controller();
-$words = $controller->$Language;
+$words = $controller->$Languages;
 ?>
 <html>
 	<head>
