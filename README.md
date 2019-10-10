@@ -19,7 +19,7 @@ Windows:
 [How To Download & Install ](http://www.sqlitetutorial.net/download-install-sqlite)
 
 * Edit the data in */cfg/config.ini*
-* */www* is webroot
+* Set webroot on */www*
 * Grant permissions
 `chgrp www-data app/data`
 `chmod g+w app/data`
