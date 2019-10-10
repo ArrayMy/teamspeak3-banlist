@@ -42,7 +42,8 @@ class SQLite_core
 
     public function SQLite3_Save_Data($data)
     {
-        $config = new App\Config_Parser();
+        $config = new ConfigParser();
+        $config = $config->configparse();
         $this->SQLite3_Count_ServerClients($data);
         $this->SQLite3_Count_FileClients();
         if ($this->countfilebans == 0){
@@ -140,8 +141,9 @@ class SQLite_core
     }
     public function Top_Banner()
     {
+        $config = new ConfigParser();
         $y = 2;
-        $config = $this->parse_config();
+        $config = $config->configparse();
         for($x=1;$y!=null;$x++){
             $name = 'name'.$x;
             $alias = 'alias'.$x;
@@ -195,6 +197,8 @@ class SQLite_core
     }
     public function generate_language()
     {
+        $config = new ConfigParser();
+        $config = $config->configparse();
          if($config['lang'] == 'cz')
         {
             $language = array(
@@ -247,7 +251,7 @@ class SQLite_core
              <br>5. ".$winner[4]['nick']." - ".$winner[4]['ban']."
             </div>";
 
-        $this->SQLite3_File_Query_Result = $this->SQLite3_File->query('SELECT * FROM TS3DATA');
+        $this->SQLite3_File_Query_Result = $this->SQLite3_File->query('SELECT * FROM TS3DATA ORDER BY id DESC');
 
         foreach ($this->SQLite3_File_Query_Result as $dataview) {
             if (empty($dataview['reason'])) {

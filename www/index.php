@@ -1,8 +1,7 @@
 <?php
 require_once("_DIR_ . \"/../../app/controller.php");
-$controller = new TeamSpeak3_Controller;
-$controller->TeamSpeak3_Banlist_Controller();
-$words = $controller->$Languages;
+$controller = new TeamSpeak3_Controller();
+$words = $controller::$Languages;
 ?>
 <html>
 	<head>
@@ -34,6 +33,7 @@ $words = $controller->$Languages;
             <th class="header"><?php echo $words[11]; ?></th>
             <th class="header"><?php echo $words[12]; ?></th>
         </tr>
+        <?php $words = $controller->TeamSpeak3_Banlist_Controller(); ?>
         <div class="footer">
             Graphically Designed by
             <a class="dave" href=https://github.com/DV2013DAWE> DAWE Graphics</a><br>

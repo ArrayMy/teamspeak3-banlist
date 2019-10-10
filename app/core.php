@@ -20,8 +20,8 @@ class TeamSpeak3_Core
     public function __construct(){}
 
     public function TeamSpeak3_Core_Language(){
-       $this->Language = new SQLite_core();
-       $this->Language = $this->language->generate_language();
+       $Languager = new SQLite_core();
+       $this->Language = $Languager->generate_language();
        return $this->Language;
     }
     
